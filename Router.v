@@ -1,6 +1,6 @@
 //Example of Router with EN signal , Address to decide where din goes
 //Classic Example of Case base code design
-module model #(parameter
+module Router model #(parameter
   DATA_WIDTH = 32
 ) (
   input  [DATA_WIDTH-1:0] din,
