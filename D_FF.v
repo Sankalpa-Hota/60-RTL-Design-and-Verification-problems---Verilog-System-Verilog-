@@ -1,7 +1,9 @@
 //Async FIFO Design
 module ( input clk , rst_n , d ,
-        output reg q);
-  always@ (posedge clk , rst_n)begin
+        output qb,
+        output reg q );
+  assign qb = ~q;
+        always@ (posedge clk ,negedge rst_n)begin
     if ( !rst_n ) begin
       q  <= 0;
     end
