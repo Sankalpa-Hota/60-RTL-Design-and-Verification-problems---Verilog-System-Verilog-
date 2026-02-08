@@ -26,7 +26,7 @@ module TB_D_FF;
       d = 0;
       for ( i = 0 ; i < 10 ; i = i+1) begin
          #1 clk  = 1'b0;
-         d = $urandom_range(0,1); //choosing a random bit value
+         d = $urandom_range(1'b0,1'b1); //choosing a random bit value
          
          if (check (expected_out , q)) begin 
                $display("PASS @ %0t: q=%0b, expected=%0b", $time, q, expected_out);
