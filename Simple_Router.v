@@ -1,3 +1,5 @@
+//Example of Router with EN signal , Address to decide where din goes
+//Classic Example of Case base code design
 module model #(parameter
   DATA_WIDTH = 32
 ) (
@@ -13,7 +15,7 @@ module model #(parameter
 always@(addr) begin
   if (din_en)begin
     case(addr)
-      2'b00 : begin 
+      2'b00 : begin //Method to use multiple commands for case
         dout0 = din ; 
         dout1 = 32'b0 ; 
         dout2 = 32'b0 ;
