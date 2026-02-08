@@ -7,24 +7,24 @@ module model (
   output dout
 );
 
-//Satrt here ->
+//Start here ->
 reg temp;
 reg temp_pulse;
 assign dout = temp_pulse;
 always@(posedge clk )begin
-  if(!resetn)begin                 #Sync reset
+  if(!resetn)begin                 //Sync reset
     temp = 1'b0;
     temp_pulse = 1'b0;
   end
   else begin
-    temp <= din;                  #Adding delay
-    temp_pulse <= din & ~(temp);  #Pulse
+    temp <= din;                  //Adding delay
+    temp_pulse <= din & ~(temp);  //Pulse
   end
 end
 
 
 endmodule
 
-#Learn on how to get a plus = (Current Value) & (Prev Value)
-#Sync reset
-#Delay = Using an extra reg
+//Learn on how to get a plus = (Current Value) & (Prev Value)
+//Sync reset
+//Delay = Using an extra reg
