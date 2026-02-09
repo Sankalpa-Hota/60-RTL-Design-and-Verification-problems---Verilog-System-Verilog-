@@ -5,3 +5,4 @@ What to Learn in each of the codes :
 4) Second best -> Synchronous reset , if , else if , comparators , assign statement usage outside always block
 5) Rounding division -> Assign in combinatorial , For , Bit indexing , genvar and generate in combinatorial
 6) Edge Detected -> Learn about how to generate a pulse , write a synchronous delay , Also how to delay instructions - use additional reg
+7) Left and Right Shift , PISO Architecture , Buffer design and use
