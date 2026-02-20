@@ -29,7 +29,7 @@ always@(posedge clk)begin
   end
   else begin
     dout <= temp[0];     //output is getting the last bit data
-    temp <= temp >> 1;  //To push the data to left as out needs the last bit of data
+    temp <= temp >> 1;  //To push the data to right as out needs the last bit of data
   end
 end
 endmodule
