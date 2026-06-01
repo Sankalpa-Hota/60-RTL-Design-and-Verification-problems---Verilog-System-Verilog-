@@ -1,3 +1,5 @@
+//Q.1:Write UVM SystemVerilog constraint to generate an integer array of size 10 where the sum of all elements equals exactly 100. Implement sum calculation without using .sum() array reduction method. Define element bounds to ensure solver feasibility.
+
 // Constrained-random starter template
 class dv_seq_item extends uvm_sequence_item;
   `uvm_object_utils(dv_seq_item)
