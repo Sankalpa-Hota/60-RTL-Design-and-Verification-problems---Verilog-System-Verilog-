@@ -1,26 +1,36 @@
-// Constrained-random starter template
-class dv_seq_item extends uvm_sequence_item;
-  `uvm_object_utils(dv_seq_item)
+class three_same extends uvm_object;
+  `uvm_object_utils(three_same)
 
-  // TODO: Declare the rand variables needed for this problem.
-    rand int c_array[10];
-  function new(string name = "dv_seq_item");
+  rand bit [7:0] arr[10];
+  rand bit [7:0] dup_val;
+  rand int unsigned dup_idx[3];
+
+  function new(string name = "three_same");
     super.new(name);
   endfunction
 
-  constraint c_main {
-    // TODO: Add the required constraints here.
-    
-    //c_array.sum() == 100;
-    c_array[0]+c_array[1]+c_array[2]+c_array[3]+c_array[4]+c_array[5]+c_array[6]+c_array[7]+c_array[8]+c_array[9]==10;
-
+  // 3 distinct positions for the triplicate
+  constraint c_dup_idx {
+  unique {dup_idx};
+  }
+  constraint c_dup_idx_range {
+  foreach(dup_idx[i]) dup_idx[i] inside {[0:9]};
   }
 
-  function void post_randomize();
-    // TODO: Add any derived calculations or output queue construction here.
-    int c = 0;
-    foreach(c_array[i]) c = c+ c_array[i];
-    assert(c == 100) else $fatal("Sum Mismatch: %0d",c) //We did assert here to check if constraint work properly and to add a print statement in case it failed.
-  endfunction
-endclass
+  // Exactly 3 elements equal dup_val, others different from it
+  constraint c_triplicate {
+    foreach(arr[i]) {
+      if ( i inside {dup_idx}) begin
+             arr[i] == dup_val;
+      end
+      else begin
+         arr[i] != dup_val;
+      end
+    }
+  }
 
+  constraint c_bounds {
+    dup_val inside {[0:255]};
+    foreach(arr[i]) arr[i] inside {[0:255]};
+  }
+endclass
