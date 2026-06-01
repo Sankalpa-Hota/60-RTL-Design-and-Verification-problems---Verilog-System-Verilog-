@@ -1,3 +1,4 @@
+//Q2 : Write UVM SystemVerilog constraint for integer array of 10 elements where exactly 3 elements share the same value (triplicate), and the remaining 7 elements are all unique and different from the triplicate value. Total: 8 distinct values (1 appearing 3 times, 7 appearing once each).
 class three_same extends uvm_object;
   `uvm_object_utils(three_same)
 
